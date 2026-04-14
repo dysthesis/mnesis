@@ -1,6 +1,7 @@
 # Mnesis
 
-A basic Verso book for the Mnesis project, following the `verso-templates/basic-book` layout.
+A basic Verso book for the Mnesis project, following the
+`verso-templates/basic-book` layout.
 
 Build with:
 
