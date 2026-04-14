@@ -7,7 +7,17 @@
       # responsibilities. They are then imported below, recombined.
       imports = [
         ./flake/shell
+        ./flake/packages
       ];
+
+      # The _module.args attribute defines variables that are made accessible
+      # across any flake modules as arguments.
+      perSystem = _: {
+        _module.args = {
+          # Define a source of truth for where the source code for Lean lies
+          leanSource = ./.;
+        };
+      };
 
       # Here, we define the architectures which we support.
       systems = [
