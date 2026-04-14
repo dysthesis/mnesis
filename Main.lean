@@ -1,4 +1,6 @@
-import Mnesis
+import VersoManual
+import Book
 
-def main : IO Unit :=
-  IO.println s!"Hello, {hello}!"
+open Verso.Genre Manual
+
+def main := manualMain (%doc Book)

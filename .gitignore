@@ -1,3 +1,4 @@
 .direnv/
 result
 /.lake
+_out/

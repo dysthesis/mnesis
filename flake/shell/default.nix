@@ -5,6 +5,7 @@
       packages = with pkgs; [
         # Lean tooling
         leanPackages.lean4
+        leanPackages.verso
 
         # Nix tooling
         nil

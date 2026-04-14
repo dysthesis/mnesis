@@ -17,15 +17,19 @@ buildLakePackage {
   # `elan` to build cross-version example projects. Package the core libraries
   # and CLI tools only.
   buildTargets = [
-    "VersoUtil"
-    "Verso"
-    "MultiVerso"
-    "VersoSearch"
-    "VersoBlog"
-    "VersoManual"
-    "VersoTutorial"
-    "VersoLiterate"
-    "VersoLiterateCode"
+    # Downstream executables need Verso's native artifacts prebuilt, otherwise
+    # Lake tries to write them into the read-only Nix store.
+    "VersoUtil:static"
+    "Verso:static"
+    "MultiVerso:static"
+    "VersoSearch:static"
+    "VersoBlog:static"
+    "VersoManual:static"
+    "VersoTutorial:static"
+    "VersoLiterate:static"
+    "VersoLiterateCode:static"
+    "+Verso.Output.Html.CssVars:o"
+    "+Verso.Output.Html.KaTeX:o"
     "verso"
     "verso-literate"
     "verso-html"

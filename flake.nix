@@ -1,5 +1,5 @@
 {
-  description = "A protocol for personal data management.";
+  description = "A Verso book for the Mnesis project.";
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -46,8 +46,14 @@
             src = ./.;
             filter = path: type: let
               relPath = lib.removePrefix (toString ./. + "/") path;
+              baseName = baseNameOf path;
             in
-              !lib.hasPrefix ".lake" relPath;
+              lib.cleanSourceFilter path type
+              && !lib.hasPrefix ".lake" relPath
+              && !lib.hasPrefix "_out" relPath
+              && !lib.hasPrefix ".direnv" relPath
+              && !lib.hasPrefix ".jj" relPath
+              && baseName != "result";
           };
 
           # Expose npins sources for non-Flake dependencies

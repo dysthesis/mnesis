@@ -1,10 +1,15 @@
 name = "mnesis"
 version = "0.1.0"
-defaultTargets = ["mnesis"]
+defaultTargets = ["Book", "generate-book"]
+
+[[require]]
+name = "verso"
+git = "https://github.com/leanprover/verso"
+rev = "v4.29.0"
 
 [[lean_lib]]
-name = "Mnesis"
+name = "Book"
 
 [[lean_exe]]
-name = "mnesis"
+name = "generate-book"
 root = "Main"
