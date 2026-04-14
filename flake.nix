@@ -3,10 +3,13 @@
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
+      # We decompose this flake into separate modules with different
+      # responsibilities. They are then imported below, recombined.
       imports = [
         ./flake/shell
       ];
 
+      # Here, we define the architectures which we support.
       systems = [
         "x86_64-linux"
         "aarch64-linux"

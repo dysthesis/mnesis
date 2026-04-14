@@ -1,0 +1,10 @@
+name = "mnesis"
+version = "0.1.0"
+defaultTargets = ["mnesis"]
+
+[[lean_lib]]
+name = "Mnesis"
+
+[[lean_exe]]
+name = "mnesis"
+root = "Main"
