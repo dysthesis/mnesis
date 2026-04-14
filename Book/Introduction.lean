@@ -5,10 +5,11 @@ open Verso.Genre.Manual.InlineLean
 
 #doc (Manual) "Introduction" =>
 
-This book starts from Verso's basic-book template and provides a place to document the Mnesis project chapter by chapter.
+The data plane of Mnesis consists of twofolds, namely,
 
-Here is a small Lean definition rendered directly in the book:
+* a labelled, directed graph $`G = (V, E) ∈ \mathbb{G}`, and
+* an append-only event log $`L = (e_0, e_1, ⋯), e_i : \mathbb{G} → \mathbb{G}, 
+  e_i ∈ Σ`, describing mutations on $`G`.
 
-```lean
-def remember (x : α) : α := x
-```
+Mutations can be informally thought of as the standard CRUD operations on the
+graph.
