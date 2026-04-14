@@ -1,0 +1,47 @@
+{
+  "pins": {
+    "md4lean": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "acmepjz",
+        "repo": "md4lean"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6a3fb240133bcb7e1a066fdc784b3fdc304e3fc5",
+      "url": "https://github.com/acmepjz/md4lean/archive/6a3fb240133bcb7e1a066fdc784b3fdc304e3fc5.tar.gz",
+      "hash": "sha256-sPSMZd9J8IN3OLj/E2sLxgqM1jMq7b3+5ReFkMBpQcw="
+    },
+    "subverso": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "leanprover",
+        "repo": "subverso"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "ce893b9042128037e2d3c0158b9567fab9fae268",
+      "url": "https://github.com/leanprover/subverso/archive/ce893b9042128037e2d3c0158b9567fab9fae268.tar.gz",
+      "hash": "sha256-uUmLu/zIataPnSxh3v8Wej5PGnrNaSkLszltJoT7FrQ="
+    },
+    "verso": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "leanprover",
+        "repo": "verso"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v4.29.0",
+      "revision": "7ae82ac2ae54ae5dcc9948a701669e9b596e5cae",
+      "url": "https://api.github.com/repos/leanprover/verso/tarball/refs/tags/v4.29.0",
+      "hash": "sha256-5eo/xbPNbS9/Bv7tfnXz52mUo/CXG6mnLWg8h6mg6FE="
+    }
+  },
+  "version": 7
+}

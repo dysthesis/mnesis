@@ -4,13 +4,15 @@
       name = "mnesis-dev";
       packages = with pkgs; [
         # Lean tooling
-        lean4
+        leanPackages.lean4
 
         # Nix tooling
         nil
         alejandra
         statix
         deadnix
+        npins
+        just
       ];
     };
   };

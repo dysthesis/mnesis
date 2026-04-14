@@ -12,10 +12,46 @@
 
       # The _module.args attribute defines variables that are made accessible
       # across any flake modules as arguments.
-      perSystem = _: {
+      perSystem = {
+        system,
+        lib,
+        ...
+      }: let
+        npins = import ./flake/npins;
+      in {
         _module.args = {
+          # Overlay pkgs.leanPackages with dependencies that are not present in
+          # upstream nixpkgs
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              (_: prev: {
+                leanPackages = prev.leanPackages.overrideScope (self: _: {
+                  md4lean = self.callPackage ./flake/packages/md4lean.nix {
+                    src = npins.md4lean;
+                  };
+                  subverso = self.callPackage ./flake/packages/subverso.nix {
+                    src = npins.subverso;
+                  };
+                  verso = self.callPackage ./flake/packages/verso.nix {
+                    src = npins.verso;
+                  };
+                });
+              })
+            ];
+          };
+
           # Define a source of truth for where the source code for Lean lies
-          leanSource = ./.;
+          leanSource = lib.cleanSourceWith {
+            src = ./.;
+            filter = path: type: let
+              relPath = lib.removePrefix (toString ./. + "/") path;
+            in
+              !lib.hasPrefix ".lake" relPath;
+          };
+
+          # Expose npins sources for non-Flake dependencies
+          inherit npins;
         };
       };
 
