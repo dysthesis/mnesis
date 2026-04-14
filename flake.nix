@@ -8,6 +8,9 @@
       imports = [
         ./flake/shell
         ./flake/packages
+        ./flake/formatting
+
+        inputs.treefmt-nix.flakeModule
       ];
 
       # The _module.args attribute defines variables that are made accessible
@@ -73,5 +76,6 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 }
